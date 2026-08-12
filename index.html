@@ -83,6 +83,15 @@
       pointer-events: none;
     }
 
+    .hero-fade-sides {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, #060b16 0%, transparent 12%, transparent 88%, #060b16 100%),
+        linear-gradient(to bottom, #060b16 0%, transparent 14%);
+      pointer-events: none;
+    }
+
     .hero-badge {
       position: absolute;
       top: 14px;
@@ -656,6 +665,7 @@
     <div class="hero">
       <video src="videos/hero.mp4" poster="imagens/hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
       <div class="hero-badge"><span class="dot"></span><span>Insane Control</span></div>
+      <div class="hero-fade-sides"></div>
       <div class="hero-overlay"></div>
     </div>
 
