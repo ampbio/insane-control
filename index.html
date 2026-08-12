@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSANE CONTROL | DJ & Producer</title>
+  <link rel="icon" type="image/png" href="imagens/insanecontrolfav.png" />
+  <meta name="description" content="Insane Control | DJ & Producer - House, Tech House, Hip Hop, R&B e Música Brasileira. Visite o site para mais informações!" />
+
+  <!-- Open Graph (Facebook, WhatsApp, LinkedIn, Telegram etc.) -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://SEU-LINK-AQUI/" />
+  <meta property="og:title"       content="Insane Control | DJ & Producer" />
+  <meta property="og:description" content="Insane Control | DJ & Producer - House, Tech House, Hip Hop, R&amp;B e Música Brasileira. Visite o site para mais informações!" />
+  <meta property="og:image"       content="imagens/thumb.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="pt_BR" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:url"         content="https://SEU-LINK-AQUI/" />
+  <meta name="twitter:title"       content="Insane Control | DJ & Producer" />
+  <meta name="twitter:description" content="Insane Control | DJ & Producer - House, Tech House, Hip Hop, R&amp;B e Música Brasileira." />
+  <meta name="twitter:image"       content="imagens/thumb.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BASE ── */
+    html, body {
+      background: #060b16;
+      min-height: 100vh;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse 900px 500px at 15% 0%, rgba(48,120,220,0.28), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 100% 40%, rgba(30,80,180,0.22), transparent 60%),
+        linear-gradient(180deg, #0a1428 0%, #060b16 40%, #060b16 100%);
+      background-attachment: fixed;
+    }
+
+    .page {
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 48px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16 / 11;
+    }
+
+    .hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      height: 65%;
+      background: linear-gradient(to bottom, transparent, #060b16);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #00000066;
+      backdrop-filter: blur(6px);
+      border: 0.5px solid #ffffff22;
+      border-radius: 20px;
+      padding: 5px 12px 5px 8px;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #35a7ff;
+      box-shadow: 0 0 6px #35a7ff;
+    }
+
+    .hero-badge span {
+      font-family: 'Space Mono', monospace;
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffffcc;
+    }
+
+    /* ── PROFILE ── */
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      border: 1.5px solid #35a7ff55;
+      box-shadow: 0 0 22px #1c6fd233, inset 0 0 12px #00000055;
+      background: #101a2e;
+      overflow: hidden;
+      margin-top: -30px;
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo {
+      max-width: 220px;
+      max-height: 90px;
+      width: auto;
+      height: auto;
+      margin-top: 14px;
+      display: block;
+    }
+
+    .name-sub {
+      display: block;
+      color: #6fb4ff;
+      font-size: 13px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.22em;
+      margin-top: 10px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 11px;
+      color: #ffffff66;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 8px;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ── ROLES MARQUEE ── */
+    .roles-marquee {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 14px;
+      mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
+
+    .roles-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marquee-roles 14s linear infinite;
+    }
+
+    @keyframes marquee-roles {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .roles-track { animation: none; }
+    }
+
+    .role-pill {
+      font-size: 9.5px;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #bcdcff;
+      border: 0.5px solid #35a7ff33;
+      border-radius: 20px;
+      padding: 4px 10px;
+      background: #1c6fd214;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .role-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #ffffff25;
+      flex-shrink: 0;
+      margin: 0 10px;
+    }
+
+    /* ── SOCIAL ── */
+    .social-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .soc-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 0.5px solid #ffffff1a;
+      background: #0e1930;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      color: #ffffffaa;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
+    }
+
+    .soc-btn:hover {
+      background: #142545;
+      border-color: #35a7ff66;
+      color: #fff;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      width: 100%;
+      padding: 26px 20px 8px;
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #35a7ff;
+    }
+
+    /* ── LINKS ── */
+    .links {
+      width: 100%;
+      padding: 6px 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 16px;
+      border: 0.5px solid #ffffff14;
+      border-radius: 6px;
+      background: #0e1930;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: #35a7ff;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    .link-btn:hover { background: #142545; border-color: #35a7ff44; }
+    .link-btn:hover::before { opacity: 1; }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 5px;
+      background: #16233f;
+      border: 0.5px solid #ffffff15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 17px;
+      color: #6fb4ff;
+    }
+
+    .btn-text {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+
+    .btn-label {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-sub {
+      font-size: 11px;
+      color: #ffffff44;
+      margin-top: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-arrow {
+      font-size: 14px;
+      color: #ffffff25;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 32px;
+      padding-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-copy {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff20;
+      text-align: center;
+    }
+
+    .footer-credit {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #ffffff30;
+      text-align: center;
+    }
+
+    .footer-brand {
+      color: #35a7ff;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid #35a7ff55;
+      padding-bottom: 1px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .footer-brand:hover { opacity: 0.8; }
+
+    /* ── ENTRANCE ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000000cc;
+      z-index: 100;
+      align-items: flex-end;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: 100%;
+      max-width: 420px;
+      max-height: 82vh;
+      overflow-y: auto;
+      background: #0d1626;
+      border-top: 0.5px solid #35a7ff33;
+      border-radius: 16px 16px 0 0;
+      padding: 20px 20px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: slideUp 0.25s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+    }
+
+    .modal-title {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 0.5px solid #ffffff1a;
+      background: #16233f;
+      color: #ffffffaa;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover { background: #1e3157; color: #fff; }
+
+    .modal-body {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #ffffffb5;
+    }
+
+    .modal-body b { color: #fff; font-weight: 600; }
+
+    .modal-body .quote {
+      margin-top: 6px;
+      padding: 14px;
+      border-left: 3px solid #35a7ff;
+      background: #1c6fd214;
+      border-radius: 4px;
+      font-style: italic;
+      color: #ffffffdd;
+    }
+
+    .modal-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .modal-pillar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 0.5px solid #ffffff14;
+      border-radius: 6px;
+      background: #16233f;
+    }
+
+    .modal-pillar i { color: #35a7ff; font-size: 15px; }
+
+    .modal-pillar span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ffffffcc;
+    }
+
+    .modal-track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border: 0.5px solid #ffffff14;
+      border-radius: 8px;
+      background: #16233f;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .modal-track:hover { background: #1e3157; border-color: #35a7ff44; }
+
+    .modal-track-art {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #1c6fd2, #0a1428);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ffffffcc;
+    }
+
+    .modal-track-info { flex: 1; min-width: 0; }
+
+    .modal-track-title {
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .modal-track-sub {
+      font-size: 10px;
+      color: #ffffff55;
+      margin-top: 2px;
+    }
+
+    .modal-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 4px 0;
+    }
+
+    .modal-contact-row i {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #16233f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #6fb4ff;
+      flex-shrink: 0;
+    }
+
+    .modal-contact-row a, .modal-contact-row span {
+      font-size: 12.5px;
+      color: #ffffffcc;
+      text-decoration: none;
+    }
+
+    .modal-contact-row a:hover { color: #6fb4ff; }
+
+    .modal iframe {
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .modal-open-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 0.5px solid #ffffff1a;
+      background: #16233f;
+      color: #ffffffbb;
+      font-family: 'Big Shoulders Display', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .modal-open-btn:hover { background: #1e3157; color: #fff; }
+
+    /* ── BOOKING INLINE PANEL ── */
+    .booking-inline {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+      background: #0e1930;
+      border: 0.5px solid #ffffff14;
+      border-radius: 6px;
+      margin-top: 0;
+    }
+
+    .booking-inline.open {
+      max-height: 320px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+
+    .booking-inline-inner {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-btn.active {
+      background: #142545;
+      border-color: #35a7ff44;
+    }
+
+    .link-btn.active .btn-arrow {
+      transform: rotate(90deg);
+    }
+
+    .btn-arrow {
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <div class="hero">
+      <video src="videos/hero.mp4" poster="imagens/hero.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      <div class="hero-badge"><span class="dot"></span><span>Insane Control</span></div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- PERFIL -->
+    <div class="avatar fade-up">
+      <img src="imagens/foto.png" alt="Insane Control" />
+    </div>
+
+    <img class="logo fade-up" src="imagens/logo.png" alt="Insane Control" />
+    <p class="name-sub fade-up">DJ & Producer</p>
+    <p class="tagline fade-up">Uma dose de insanidade</p>
+
+    <!-- ROLES MARQUEE -->
+    <div class="roles-marquee fade-up">
+      <div class="roles-track">
+        <span class="role-pill">House</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Tech House</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Hip Hop</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">R&B</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Música Brasileira</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">House</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Tech House</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Hip Hop</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">R&B</span>
+        <div class="role-dot"></div>
+        <span class="role-pill">Música Brasileira</span>
+        <div class="role-dot"></div>
+      </div>
+    </div>
+
+    <!-- REDES SOCIAIS -->
+    <div class="social-row fade-up">
+      <a class="soc-btn" href="https://www.instagram.com/insanecontroldj/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+      </a>
+      <a class="soc-btn" href="https://api.whatsapp.com/send?phone=5548983399985" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+      </a>
+      <a class="soc-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <i class="ti ti-brand-youtube" aria-hidden="true"></i>
+      </a>
+      <a class="soc-btn" href="https://open.spotify.com/intl-pt/artist/6YjGqCuS38mqXhXFgWfKyR" target="_blank" rel="noopener noreferrer" aria-label="Spotify" onclick="openModal('spotify', event)">
+        <i class="ti ti-brand-spotify" aria-hidden="true"></i>
+      </a>
+      <a class="soc-btn" href="https://soundcloud.com/insanecontroldj" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud" onclick="openModal('soundcloud', event)">
+        <i class="ti ti-brand-soundcloud" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!-- BOTÕES -->
+    <div class="links fade-up">
+      <a class="link-btn" href="imagens/presskit.pdf" onclick="openModal('presskit', event)">
+        <div class="btn-icon"><i class="ti ti-file-text" aria-hidden="true"></i></div>
+        <div class="btn-text">
+          <div class="btn-label">Press Kit</div>
+          <div class="btn-sub">Conheça o Insane Control</div>
+        </div>
+        <i class="ti ti-arrow-right btn-arrow" aria-hidden="true"></i>
+      </a>
+
+      <a class="link-btn" href="#" onclick="openModal('previas', event)">
+        <div class="btn-icon"><i class="ti ti-headphones" aria-hidden="true"></i></div>
+        <div class="btn-text">
+          <div class="btn-label">Prévias de Lançamentos</div>
+        </div>
+        <i class="ti ti-arrow-right btn-arrow" aria-hidden="true"></i>
+      </a>
+
+      <a class="link-btn" id="booking-btn" href="#" onclick="toggleBooking(event)">
+        <div class="btn-icon"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
+        <div class="btn-text">
+          <div class="btn-label">Booking</div>
+          <div class="btn-sub">Fale para agendar</div>
+        </div>
+        <i class="ti ti-arrow-right btn-arrow" aria-hidden="true"></i>
+      </a>
+      <div class="booking-inline" id="booking-inline">
+        <div class="booking-inline-inner">
+          <div class="modal-contact-row">
+            <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+            <a href="https://api.whatsapp.com/send?phone=5548983399985" target="_blank" rel="noopener noreferrer">+55 48 9833-9985</a>
+          </div>
+          <div class="modal-contact-row">
+            <i class="ti ti-mail" aria-hidden="true"></i>
+            <a href="#">email@insanecontrol.com</a>
+          </div>
+          <div class="modal-contact-row">
+            <i class="ti ti-world" aria-hidden="true"></i>
+            <a href="#" target="_blank" rel="noopener noreferrer">site oficial</a>
+          </div>
+          <div class="modal-contact-row">
+            <i class="ti ti-map-pin" aria-hidden="true"></i>
+            <span>Imbituba · SC</span>
+          </div>
+          <a class="link-btn" href="https://api.whatsapp.com/send?phone=5548983399985" target="_blank" rel="noopener noreferrer" style="justify-content:center;">
+            <i class="ti ti-brand-whatsapp"></i>&nbsp; Falar agora
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <div class="footer fade-up">
+      <p class="footer-copy">© 2026 Insane Control · Todos os direitos reservados</p>
+      <p class="footer-credit">Site produzido por <a class="footer-brand" href="https://amplifying.com.br/servicos/" target="_blank" rel="noopener noreferrer">Amplifying</a></p>
+    </div>
+
+  </div>
+
+  <!-- MODAL: PRESS KIT -->
+  <div class="modal-backdrop" id="modal-presskit" onclick="closeOnBackdrop(event, 'presskit')">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Press Kit · Insane Control</span>
+        <button class="modal-close" aria-label="Fechar modal" onclick="closeModal('presskit')"><i class="ti ti-x"></i></button>
+      </div>
+      <iframe id="iframe-presskit" src="" height="480" loading="lazy"></iframe>
+      <div class="modal-actions">
+        <a class="modal-open-btn" href="imagens/presskit.pdf" download rel="noopener noreferrer">
+          <i class="ti ti-download"></i> Baixar PDF
+        </a>
+        <a class="modal-open-btn" href="https://api.whatsapp.com/send?phone=5548983399985&text=Oi!%20Vi%20o%20press%20kit%20do%20Insane%20Control%20e%20queria%20conversar." target="_blank" rel="noopener noreferrer">
+          <i class="ti ti-brand-whatsapp"></i> Contato
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PRÉVIAS DE LANÇAMENTOS -->
+  <div class="modal-backdrop" id="modal-previas" onclick="closeOnBackdrop(event, 'previas')">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Prévias de Lançamentos</span>
+        <button class="modal-close" aria-label="Fechar modal" onclick="closeModal('previas')"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <!-- conteúdo a definir -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SPOTIFY -->
+  <div class="modal-backdrop" id="modal-spotify" onclick="closeOnBackdrop(event, 'spotify')">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Spotify · Insane Control</span>
+        <button class="modal-close" aria-label="Fechar modal" onclick="closeModal('spotify')"><i class="ti ti-x"></i></button>
+      </div>
+      <iframe id="iframe-spotify" src="" height="352" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <a class="modal-open-btn" href="https://open.spotify.com/intl-pt/artist/6YjGqCuS38mqXhXFgWfKyR" target="_blank" rel="noopener noreferrer">
+        <i class="ti ti-brand-spotify"></i> Abrir no Spotify
+      </a>
+    </div>
+  </div>
+
+  <!-- MODAL: SOUNDCLOUD -->
+  <div class="modal-backdrop" id="modal-soundcloud" onclick="closeOnBackdrop(event, 'soundcloud')">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">SoundCloud · Insane Control</span>
+        <button class="modal-close" aria-label="Fechar modal" onclick="closeModal('soundcloud')"><i class="ti ti-x"></i></button>
+      </div>
+      <iframe id="iframe-soundcloud" src="" height="300" scrolling="no" loading="lazy"></iframe>
+      <a class="modal-open-btn" href="https://soundcloud.com/insanecontroldj" target="_blank" rel="noopener noreferrer">
+        <i class="ti ti-brand-soundcloud"></i> Abrir no SoundCloud
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Proteção contra clickjacking
+    if (window.top !== window.self) window.top.location = window.self.location;
+
+    // ── ENTRANCE ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 60, 600)}ms`;
+      observer.observe(el);
+    });
+
+    // ── MODAIS ──
+    const MODAL_IDS = ['presskit', 'previas', 'spotify', 'soundcloud'];
+    const EMBED_IDS = ['spotify', 'soundcloud'];
+    const PDF_IDS   = ['presskit'];
+
+    const sources = {
+      presskit:   'imagens/presskit.pdf',
+      spotify:    'https://open.spotify.com/embed/artist/6YjGqCuS38mqXhXFgWfKyR?utm_source=generator&theme=0',
+      soundcloud: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/insanecontroldj&color=%2335a7ff&auto_play=false&show_artwork=true&show_user=true'
+    };
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    // Substitui iframes de PDF por canvas (PDF.js) no mobile
+    if (isMobile) {
+      const script = document.createElement('script');
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+      document.head.appendChild(script);
+
+      PDF_IDS.forEach(id => {
+        const iframe = document.getElementById('iframe-' + id);
+        const wrapper = document.createElement('div');
+        wrapper.id = 'pdfwrap-' + id;
+        wrapper.style.cssText = 'overflow-y:auto;max-height:70vh;border-radius:10px;background:#0e1930;';
+        iframe.replaceWith(wrapper);
+      });
+    }
+
+    async function renderPdf(id, url) {
+      const wrapper = document.getElementById('pdfwrap-' + id);
+      if (!wrapper || wrapper.dataset.loaded) return;
+      wrapper.dataset.loaded = '1';
+      wrapper.innerHTML = '<p style="color:#ffffff44;font-size:12px;padding:16px;text-align:center">Carregando...</p>';
+
+      const pdfjsLib = window['pdfjs-dist/build/pdf'];
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+      const pdf = await pdfjsLib.getDocument(url).promise;
+      wrapper.innerHTML = '';
+
+      for (let p = 1; p <= pdf.numPages; p++) {
+        const page    = await pdf.getPage(p);
+        const scale   = wrapper.clientWidth / page.getViewport({ scale: 1 }).width;
+        const viewport = page.getViewport({ scale });
+        const canvas  = document.createElement('canvas');
+        canvas.width  = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.cssText = 'display:block;width:100%;margin-bottom:4px;';
+        wrapper.appendChild(canvas);
+        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+      }
+    }
+
+    function openModal(id, e) {
+      if (e) e.preventDefault();
+      if (isMobile && PDF_IDS.includes(id)) {
+        const tryRender = () => {
+          if (window['pdfjs-dist/build/pdf']) renderPdf(id, sources[id]);
+          else setTimeout(tryRender, 100);
+        };
+        tryRender();
+      } else if (PDF_IDS.includes(id) || EMBED_IDS.includes(id)) {
+        const iframe = document.getElementById('iframe-' + id);
+        if (iframe && (!iframe.src || iframe.src === window.location.href)) iframe.src = sources[id];
+      }
+      document.getElementById('modal-' + id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById('modal-' + id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeOnBackdrop(e, id) {
+      if (e.target === e.currentTarget) closeModal(id);
+    }
+
+    function toggleBooking(e) {
+      e.preventDefault();
+      const btn = document.getElementById('booking-btn');
+      const panel = document.getElementById('booking-inline');
+      btn.classList.toggle('active');
+      panel.classList.toggle('open');
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        MODAL_IDS.forEach(closeModal);
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
