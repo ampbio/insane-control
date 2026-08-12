@@ -287,7 +287,11 @@
       color: inherit;
       position: relative;
       overflow: hidden;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.15s, border-color 0.15s, transform 0.15s ease;
+    }
+
+    .link-btn:active {
+      transform: scale(0.97);
     }
 
     .link-btn::before {
@@ -403,17 +407,26 @@
 
     /* ── MODAL ── */
     .modal-backdrop {
-      display: none;
       position: fixed;
       inset: 0;
       background: #000000cc;
       z-index: 100;
+      display: flex;
       align-items: flex-end;
       justify-content: center;
       backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.22s ease, backdrop-filter 0.22s ease, visibility 0s linear 0.22s;
     }
 
-    .modal-backdrop.open { display: flex; }
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 0.22s ease, backdrop-filter 0.22s ease;
+    }
 
     .modal {
       width: 100%;
@@ -427,12 +440,14 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
-      animation: slideUp 0.25s ease;
+      transform: translateY(24px) scale(0.98);
+      opacity: 0;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
     }
 
-    @keyframes slideUp {
-      from { transform: translateY(100%); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
+    .modal-backdrop.open .modal {
+      transform: translateY(0) scale(1);
+      opacity: 1;
     }
 
     .modal-header {
@@ -624,7 +639,7 @@
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.35s ease;
+      transition: max-height 0.28s ease, opacity 0.2s ease, margin-top 0.28s ease;
       background: #0e1930;
       border: 0.5px solid #ffffff14;
       border-radius: 6px;
@@ -934,7 +949,7 @@
 
     function closeModal(id) {
       document.getElementById('modal-' + id).classList.remove('open');
-      document.body.style.overflow = '';
+      setTimeout(() => { document.body.style.overflow = ''; }, 220);
     }
 
     function closeOnBackdrop(e, id) {
